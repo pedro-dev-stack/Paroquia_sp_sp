@@ -1,15 +1,42 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { StainedGlassBackground } from '@/components/cathedral/stained-glass-background'
 import { Header } from '@/components/navigation/header'
 import { Footer } from '@/components/navigation/footer'
-import { WhatsAppButton } from '@/components/navigation/whatsapp-button'
 import { HeroSection } from '@/components/sections/hero-section'
-import { MassScheduleSection } from '@/components/sections/mass-schedule-section'
-import { LiturgySection } from '@/components/sections/liturgy-section'
-import { CommunitySection } from '@/components/sections/community-section'
-import { EventsSection } from '@/components/sections/events-section'
-import { TitheSection } from '@/components/sections/tithe-section'
+import { LazyLoadSection } from '@/components/ui/lazy-load'
+
+// Lazy load heavy sections
+const WhatsAppButton = dynamic(
+  () => import('@/components/navigation/whatsapp-button').then(mod => ({ default: mod.WhatsAppButton })),
+  { ssr: false }
+)
+
+const MassScheduleSection = dynamic(
+  () => import('@/components/sections/mass-schedule-section').then(mod => ({ default: mod.MassScheduleSection })),
+  { loading: () => <div className="min-h-[600px] animate-pulse bg-muted/10" /> }
+)
+
+const LiturgySection = dynamic(
+  () => import('@/components/sections/liturgy-section').then(mod => ({ default: mod.LiturgySection })),
+  { loading: () => <div className="min-h-[800px] animate-pulse bg-muted/10" /> }
+)
+
+const CommunitySection = dynamic(
+  () => import('@/components/sections/community-section').then(mod => ({ default: mod.CommunitySection })),
+  { loading: () => <div className="min-h-[500px] animate-pulse bg-muted/10" /> }
+)
+
+const EventsSection = dynamic(
+  () => import('@/components/sections/events-section').then(mod => ({ default: mod.EventsSection })),
+  { loading: () => <div className="min-h-[600px] animate-pulse bg-muted/10" /> }
+)
+
+const TitheSection = dynamic(
+  () => import('@/components/sections/tithe-section').then(mod => ({ default: mod.TitheSection })),
+  { loading: () => <div className="min-h-[400px] animate-pulse bg-muted/10" /> }
+)
 
 export default function HomePage() {
   return (
@@ -18,23 +45,33 @@ export default function HomePage() {
       <Header />
       
       <main>
-        {/* Hero - Cathedral Light */}
+        {/* Hero - Critical, load immediately */}
         <HeroSection />
         
-        {/* Mass Schedule */}
-        <MassScheduleSection />
+        {/* Mass Schedule - High priority */}
+        <LazyLoadSection threshold={0.1} rootMargin="100px">
+          <MassScheduleSection />
+        </LazyLoadSection>
         
         {/* Daily Liturgy & Saint of the Day */}
-        <LiturgySection />
+        <LazyLoadSection threshold={0.1} rootMargin="200px">
+          <LiturgySection />
+        </LazyLoadSection>
         
         {/* Community Life */}
-        <CommunitySection />
+        <LazyLoadSection threshold={0.1} rootMargin="300px">
+          <CommunitySection />
+        </LazyLoadSection>
         
         {/* Upcoming Events */}
-        <EventsSection />
+        <LazyLoadSection threshold={0.1} rootMargin="400px">
+          <EventsSection />
+        </LazyLoadSection>
         
         {/* Tithe & Donations */}
-        <TitheSection />
+        <LazyLoadSection threshold={0.1} rootMargin="500px">
+          <TitheSection />
+        </LazyLoadSection>
       </main>
       
       <Footer />

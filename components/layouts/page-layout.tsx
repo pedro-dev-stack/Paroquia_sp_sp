@@ -1,22 +1,48 @@
 'use client'
 
 import { type ReactNode } from 'react'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { StainedGlassBackground } from '@/components/cathedral/stained-glass-background'
 import { Header } from '@/components/navigation/header'
 import { Footer } from '@/components/navigation/footer'
-import { WhatsAppButton } from '@/components/navigation/whatsapp-button'
 import { SectionReveal } from '@/components/cathedral/section-reveal'
+
+// Lazy load non-critical components
+const WhatsAppButton = dynamic(
+  () => import('@/components/navigation/whatsapp-button').then(mod => ({ default: mod.WhatsAppButton })),
+  { ssr: false }
+)
+
+interface Breadcrumb {
+  name: string
+  url: string
+}
 
 interface PageLayoutProps {
   children: ReactNode
+  title?: string
+  subtitle?: string
+  breadcrumbs?: Breadcrumb[]
 }
 
-export function PageLayout({ children }: PageLayoutProps) {
+export function PageLayout({ children, title, subtitle, breadcrumbs }: PageLayoutProps) {
   return (
     <>
       <StainedGlassBackground />
       <Header />
-      <main>{children}</main>
+      <main>
+        {(title || breadcrumbs) && (
+          <PageHeader
+            title={title || ''}
+            overline={subtitle}
+            breadcrumbs={breadcrumbs}
+          />
+        )}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-32">
+          {children}
+        </div>
+      </main>
       <Footer />
       <WhatsAppButton />
     </>
@@ -27,9 +53,10 @@ interface PageHeaderProps {
   overline?: string
   title: string
   description?: string
+  breadcrumbs?: Breadcrumb[]
 }
 
-export function PageHeader({ overline, title, description }: PageHeaderProps) {
+export function PageHeader({ overline, title, description, breadcrumbs }: PageHeaderProps) {
   return (
     <section className="relative pt-40 pb-20 overflow-hidden">
       {/* Light effect */}
@@ -43,6 +70,34 @@ export function PageHeader({ overline, title, description }: PageHeaderProps) {
       </div>
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Breadcrumbs - SEO + navigation */}
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+              {breadcrumbs.map((crumb, i) => (
+                <li key={crumb.url} className="flex items-center gap-2">
+                  {i < breadcrumbs.length - 1 ? (
+                    <>
+                      <Link
+                        href={crumb.url}
+                        className="hover:text-primary transition-colors"
+                        prefetch={true}
+                      >
+                        {crumb.name}
+                      </Link>
+                      <span aria-hidden="true">/</span>
+                    </>
+                  ) : (
+                    <span className="text-foreground" aria-current="page">
+                      {crumb.name}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+
         <SectionReveal className="text-center">
           {overline && (
             <p className="text-sm tracking-[0.3em] uppercase text-primary/80 mb-4">
