@@ -100,10 +100,10 @@ export function MassScheduleSection() {
                     key={i}
                     className="group flex items-center gap-6 p-4 hover:bg-secondary/20 rounded transition-colors duration-300"
                   >
-                    <span className="flex-shrink-0 w-20 text-2xl font-serif text-primary">
+                    <span className="shrink-0 w-20 text-2xl font-serif text-primary">
                       {item.time}
                     </span>
-                    <div className="flex-grow h-px bg-border group-hover:bg-primary/30 transition-colors duration-300" />
+                    <div className="grow h-px bg-border group-hover:bg-primary/30 transition-colors duration-300" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       {item.description}
                     </span>

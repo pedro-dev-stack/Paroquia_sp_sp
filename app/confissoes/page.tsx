@@ -144,7 +144,7 @@ export default function ConfissoesPage() {
 
       {/* Exame de Consciência */}
       <SectionReveal>
-        <div className="bg-gradient-to-br from-primary/5 to-transparent rounded-2xl p-8 border border-border/20 mb-16">
+        <div className="bg-linear-to-br from-primary/5 to-transparent rounded-2xl p-8 border border-border/20 mb-16">
           <div className="flex items-center gap-3 mb-8">
             <BookOpen className="w-6 h-6 text-primary" />
             <h2 className="text-2xl font-serif text-foreground">Exame de Consciência</h2>

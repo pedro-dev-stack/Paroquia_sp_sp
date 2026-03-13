@@ -259,7 +259,7 @@ export default function SecretariaPage() {
 
       {/* Informações Importantes */}
       <SectionReveal>
-        <div className="bg-gradient-to-br from-primary/5 to-transparent rounded-2xl p-8 border border-border/20">
+        <div className="bg-linear-to-br from-primary/5 to-transparent rounded-2xl p-8 border border-border/20">
           <h2 className="text-xl font-serif text-foreground mb-4">Informações Importantes</h2>
           <ul className="space-y-3 text-foreground/70">
             <li className="flex items-start gap-2">

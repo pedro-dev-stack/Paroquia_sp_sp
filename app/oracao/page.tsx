@@ -314,7 +314,7 @@ export default function OracaoPage() {
           
           {/* Community Prayer */}
           <SectionReveal delay={0.2} className="mt-16">
-            <div className="p-8 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded text-center">
+            <div className="p-8 bg-linear-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded text-center">
               <Users className="h-10 w-10 mx-auto mb-4 text-primary/70" />
               <h3 className="font-serif text-xl text-foreground mb-2">
                 Oração Comunitária

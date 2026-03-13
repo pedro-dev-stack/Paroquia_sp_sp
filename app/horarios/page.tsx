@@ -41,8 +41,8 @@ export default function HorariosPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {/* Sunday Schedule - Featured */}
           <SectionReveal className="mb-20">
-            <div className="relative p-8 lg:p-12 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+            <div className="relative p-8 lg:p-12 bg-linear-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/50 via-primary/30 to-transparent" />
               
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-3 w-3 rounded-full bg-primary animate-pulse" />
@@ -121,7 +121,7 @@ export default function HorariosPage() {
                   key={i}
                   className="flex items-start gap-4 p-6 bg-card/50 border border-border/50 rounded hover:border-primary/20 transition-colors duration-300"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+                  <div className="shrink-0 w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
                     <item.icon className="h-5 w-5 text-primary/70" />
                   </div>
                   <div>

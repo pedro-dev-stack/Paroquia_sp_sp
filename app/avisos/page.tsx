@@ -130,7 +130,7 @@ export default function AvisosPage() {
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-3">
-                  <div className={`w-10 h-10 rounded-full ${styles.bg} flex items-center justify-center flex-shrink-0`}>
+                  <div className={`w-10 h-10 rounded-full ${styles.bg} flex items-center justify-center shrink-0`}>
                     <Icon className={`w-5 h-5 ${styles.iconColor}`} />
                   </div>
                   
@@ -199,7 +199,7 @@ export default function AvisosPage() {
 
         {/* Inscreva-se */}
         <SectionReveal>
-          <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 text-center border border-primary/20 mb-16">
+          <div className="bg-linear-to-br from-primary/10 to-transparent rounded-xl p-6 text-center border border-primary/20 mb-16">
             <Users className="w-10 h-10 text-primary mx-auto mb-3" />
             <h2 className="text-xl font-serif text-foreground mb-2">
               Receba os Avisos por WhatsApp

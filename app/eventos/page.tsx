@@ -117,7 +117,7 @@ export default function EventosPage() {
                 <article
                   className={`group relative grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 lg:p-8 rounded overflow-hidden transition-all duration-500 ${
                     event.featured
-                      ? 'bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 hover:border-primary/40'
+                      ? 'bg-linear-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 hover:border-primary/40'
                       : 'bg-card/30 border border-border/50 hover:border-primary/20'
                   }`}
                 >

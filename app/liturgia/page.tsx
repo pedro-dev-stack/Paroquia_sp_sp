@@ -151,7 +151,7 @@ export default function LiturgiaPage() {
 
       {/* Reflexão */}
       <SectionReveal>
-        <div className="bg-gradient-to-br from-primary/5 to-transparent rounded-2xl p-8 mb-16 border border-border/20">
+        <div className="bg-linear-to-br from-primary/5 to-transparent rounded-2xl p-8 mb-16 border border-border/20">
           <div className="flex items-center gap-3 mb-6">
             <Heart className="w-6 h-6 text-primary" />
             <h2 className="text-2xl font-serif text-foreground">Reflexão do Dia</h2>
@@ -198,7 +198,7 @@ export default function LiturgiaPage() {
           <h2 className="text-2xl font-serif text-foreground mb-6">Liturgia das Horas</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0">
                 <Sun className="w-6 h-6 text-amber-500" />
               </div>
               <div>
@@ -207,7 +207,7 @@ export default function LiturgiaPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
                 <Star className="w-6 h-6 text-orange-500" />
               </div>
               <div>
@@ -216,7 +216,7 @@ export default function LiturgiaPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0">
                 <Moon className="w-6 h-6 text-indigo-500" />
               </div>
               <div>
@@ -225,7 +225,7 @@ export default function LiturgiaPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                 <BookOpen className="w-6 h-6 text-primary" />
               </div>
               <div>

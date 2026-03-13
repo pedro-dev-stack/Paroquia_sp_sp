@@ -71,7 +71,7 @@ export function CommunitySection() {
               {communityHighlights.map((item, i) => (
                 <SectionReveal key={i} delay={0.2 + i * 0.1}>
                   <div className="flex gap-4 group">
-                    <div className="flex-shrink-0 w-12 h-12 rounded bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                    <div className="shrink-0 w-12 h-12 rounded bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -102,8 +102,8 @@ export function CommunitySection() {
           <div className="lg:col-span-6 lg:col-start-7 relative">
             <div className="relative">
               {/* Main image */}
-              <ImageReveal className="relative aspect-[4/5] rounded overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center">
+              <ImageReveal className="relative aspect-4/5 rounded overflow-hidden">
+                <div className="absolute inset-0 bg-linear-to-br from-secondary to-secondary/80 flex items-center justify-center">
                   <div className="text-center p-8">
                     <Users className="h-16 w-16 mx-auto mb-4 text-primary/30" />
                     <p className="text-sm text-muted-foreground">
@@ -118,7 +118,7 @@ export function CommunitySection() {
                 delay={0.3}
                 className="absolute -bottom-8 -left-8 w-1/2 aspect-square rounded overflow-hidden shadow-2xl shadow-background/50 border border-border/50 hidden lg:block"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                   <Heart className="h-10 w-10 text-primary/40" />
                 </div>
               </ImageReveal>

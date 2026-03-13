@@ -90,7 +90,7 @@ export default function DizimoPage() {
                 <SectionReveal key={i} delay={i * 0.1}>
                   <div className={`relative p-8 rounded border transition-all duration-300 ${
                     method.recommended
-                      ? 'bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/30 hover:border-primary/50'
+                      ? 'bg-linear-to-br from-primary/10 via-primary/5 to-transparent border-primary/30 hover:border-primary/50'
                       : 'bg-card/30 border-border/50 hover:border-primary/20'
                   }`}>
                     {method.recommended && (
@@ -142,7 +142,7 @@ export default function DizimoPage() {
               <h3 className="font-serif text-xl text-foreground mb-4">
                 PIX via QR Code
               </h3>
-              <div className="aspect-square max-w-[200px] mx-auto bg-white rounded p-4 mb-4">
+              <div className="aspect-square max-w-50 mx-auto bg-white rounded p-4 mb-4">
                 <div className="w-full h-full bg-secondary/20 rounded flex items-center justify-center">
                   <QrCode className="h-16 w-16 text-muted-foreground/30" />
                 </div>

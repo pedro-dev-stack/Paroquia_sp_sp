@@ -225,7 +225,7 @@ export default function FormacaoPage() {
             {formacoesEspecificas.map((formacao, index) => (
               <motion.div
                 key={formacao.titulo}
-                className="bg-gradient-to-br from-primary/5 to-transparent rounded-xl p-6 border border-border/20"
+                className="bg-linear-to-br from-primary/5 to-transparent rounded-xl p-6 border border-border/20"
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -247,7 +247,7 @@ export default function FormacaoPage() {
       <SectionReveal>
         <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-border/20 mb-16">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+            <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
               <BookOpen className="w-10 h-10 text-primary" />
             </div>
             <div>
@@ -267,7 +267,7 @@ export default function FormacaoPage() {
 
       {/* CTA Inscrição */}
       <SectionReveal>
-        <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 text-center border border-primary/20">
+        <div className="bg-linear-to-br from-primary/10 to-transparent rounded-2xl p-8 text-center border border-primary/20">
           <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
           <h2 className="text-2xl font-serif text-foreground mb-3">
             Inscreva-se em Nossos Cursos

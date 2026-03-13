@@ -24,7 +24,7 @@ export function Footer() {
   return (
     <footer className="relative bg-secondary/50 border-t border-border">
       {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">

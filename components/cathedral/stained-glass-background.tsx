@@ -6,7 +6,7 @@ export function StainedGlassBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Base dark gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
+      <div className="absolute inset-0 bg-linear-to-b from-background via-background to-background" />
       
       {/* Stained glass ambient glow - top left */}
       <motion.div

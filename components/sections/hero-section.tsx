@@ -118,9 +118,9 @@ export function HeroSection() {
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 1, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
+          <div className="h-px w-16 bg-linear-to-r from-transparent to-primary/50" />
           <div className="h-1.5 w-1.5 rounded-full bg-primary/60" />
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/50" />
+          <div className="h-px w-16 bg-linear-to-l from-transparent to-primary/50" />
         </motion.div>
         
         {/* CTA Buttons */}

@@ -107,17 +107,17 @@ export function TitheSection() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + i * 0.1 }}
                   >
-                    <div className="flex-shrink-0 w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+                    <div className="shrink-0 w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
                       <area.icon className="h-5 w-5 text-primary/70" />
                     </div>
-                    <div className="flex-grow">
+                    <div className="grow">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm text-foreground">{area.label}</span>
                         <span className="text-sm font-medium text-primary">{area.value}</span>
                       </div>
                       <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-primary/50 to-primary rounded-full"
+                          className="h-full bg-linear-to-r from-primary/50 to-primary rounded-full"
                           initial={{ width: 0 }}
                           whileInView={{ width: area.value }}
                           viewport={{ once: true }}

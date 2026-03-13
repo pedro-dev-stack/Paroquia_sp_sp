@@ -156,8 +156,8 @@ export function LiturgySection() {
   return (
     <section id="liturgia" className="relative py-32 bg-secondary/20">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
       
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
@@ -190,7 +190,7 @@ export function LiturgySection() {
             {/* First Reading */}
             <SectionReveal delay={0.1}>
               <div className="relative p-8 bg-card/50 border border-border/50 rounded overflow-hidden group">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+                <div className="absolute top-0 left-0 w-1 h-full bg-linear-to-b from-primary/50 via-primary/20 to-transparent" />
                 
                 <div className="flex items-center gap-3 mb-4">
                   <Book className="h-5 w-5 text-primary/70" />
@@ -231,8 +231,8 @@ export function LiturgySection() {
             
             {/* Gospel */}
             <SectionReveal delay={0.3}>
-              <div className="relative p-8 bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 rounded overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
+              <div className="relative p-8 bg-linear-to-br from-primary/5 to-transparent border border-primary/20 rounded overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary/50 via-primary/30 to-transparent" />
                 
                 <div className="flex items-center gap-3 mb-4">
                   <Cross className="h-5 w-5 text-primary" />

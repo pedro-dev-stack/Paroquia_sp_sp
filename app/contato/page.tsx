@@ -45,7 +45,7 @@ export default function ContatoPage() {
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center shrink-0">
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -59,7 +59,7 @@ export default function ContatoPage() {
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center shrink-0">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -72,7 +72,7 @@ export default function ContatoPage() {
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center shrink-0">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -85,7 +85,7 @@ export default function ContatoPage() {
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center shrink-0">
                       <Clock className="h-5 w-5 text-primary" />
                     </div>
                     <div>
@@ -207,7 +207,7 @@ export default function ContatoPage() {
           
           {/* Map */}
           <SectionReveal delay={0.3} className="mt-16">
-            <div className="aspect-[21/9] border border-border/50 rounded overflow-hidden">
+            <div className="aspect-21/9 border border-border/50 rounded overflow-hidden">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31670.21918290613!2d-35.001368189160104!3d-7.1517174999999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7aceed8919f3d77%3A0xdf25e983d0c43f7!2zUGFyw7NxdWlhIFPDo28gUGVkcm8gZSBTw6NvIFBhdWxv!5e0!3m2!1spt-BR!2sbr!4v1773187167830!5m2!1spt-BR!2sbr" 
                 width="100%" 

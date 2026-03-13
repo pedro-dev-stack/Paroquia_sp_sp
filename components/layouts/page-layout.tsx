@@ -35,7 +35,7 @@ export function PageHeader({ overline, title, description }: PageHeaderProps) {
       {/* Light effect */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100"
           style={{
             background: 'radial-gradient(ellipse at center top, oklch(0.75 0.14 80 / 0.08), transparent 60%)',
           }}
@@ -60,9 +60,9 @@ export function PageHeader({ overline, title, description }: PageHeaderProps) {
           
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/30" />
+            <div className="h-px w-16 bg-linear-to-r from-transparent to-primary/30" />
             <div className="h-1.5 w-1.5 rounded-full bg-primary/50" />
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/30" />
+            <div className="h-px w-16 bg-linear-to-l from-transparent to-primary/30" />
           </div>
         </SectionReveal>
       </div>

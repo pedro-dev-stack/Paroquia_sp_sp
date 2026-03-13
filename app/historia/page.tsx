@@ -94,8 +94,8 @@ export default function HistoriaPage() {
               </blockquote>
             </SectionReveal>
             
-            <ImageReveal className="aspect-[4/3] rounded overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center">
+            <ImageReveal className="aspect-4/3 rounded overflow-hidden">
+              <div className="w-full h-full bg-linear-to-br from-secondary to-secondary/80 flex items-center justify-center">
                 <Church className="h-20 w-20 text-primary/30" />
               </div>
             </ImageReveal>

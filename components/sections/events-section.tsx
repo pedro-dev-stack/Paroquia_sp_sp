@@ -70,7 +70,7 @@ export function EventsSection() {
               <article
                 className={`group relative p-8 rounded overflow-hidden transition-all duration-500 ${
                   event.featured
-                    ? 'bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 hover:border-primary/40'
+                    ? 'bg-linear-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 hover:border-primary/40'
                     : 'bg-card/50 border border-border/50 hover:border-primary/20'
                 }`}
               >
@@ -83,7 +83,7 @@ export function EventsSection() {
                 
                 <div className="flex gap-6">
                   {/* Date */}
-                  <div className="flex-shrink-0 text-center">
+                  <div className="shrink-0 text-center">
                     <div className={`w-16 h-16 rounded flex flex-col items-center justify-center ${
                       event.featured ? 'bg-primary/20' : 'bg-secondary'
                     }`}>
@@ -97,7 +97,7 @@ export function EventsSection() {
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-grow">
+                  <div className="grow">
                     <h3 className="font-serif text-xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                       {event.title}
                     </h3>
@@ -119,7 +119,7 @@ export function EventsSection() {
                 </div>
                 
                 {/* Hover decoration */}
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-primary/0 via-primary/50 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </article>
             </SectionReveal>
           ))}

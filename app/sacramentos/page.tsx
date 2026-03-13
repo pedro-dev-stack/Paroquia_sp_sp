@@ -124,7 +124,7 @@ export default function SacramentosPage() {
                         <ul className="space-y-2">
                           {sacrament.requirements.map((req, j) => (
                             <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <span className="mt-1.5 h-1 w-1 rounded-full bg-primary/50 flex-shrink-0" />
+                              <span className="mt-1.5 h-1 w-1 rounded-full bg-primary/50 shrink-0" />
                               {req}
                             </li>
                           ))}
