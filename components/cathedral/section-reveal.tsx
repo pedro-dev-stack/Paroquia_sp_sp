@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef, type ReactNode } from 'react'
 
 interface SectionRevealProps {
@@ -21,13 +21,14 @@ export function SectionReveal({
   once = true,
 }: SectionRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once, margin: '-100px' })
+  const shouldReduceMotion = useReducedMotion()
+  const isInView = useInView(ref, { once, margin: '-50px', amount: 0.2 })
   
   const directionVariants = {
-    up: { y: 60 },
-    down: { y: -60 },
-    left: { x: 60 },
-    right: { x: -60 },
+    up: { y: shouldReduceMotion ? 0 : 60 },
+    down: { y: shouldReduceMotion ? 0 : -60 },
+    left: { x: shouldReduceMotion ? 0 : 60 },
+    right: { x: shouldReduceMotion ? 0 : -60 },
     none: { x: 0, y: 0 },
   }
   
@@ -35,7 +36,7 @@ export function SectionReveal({
     <motion.div
       ref={ref}
       initial={{
-        opacity: 0,
+        opacity: shouldReduceMotion ? 1 : 0,
         ...directionVariants[direction],
       }}
       animate={isInView ? {
@@ -43,12 +44,12 @@ export function SectionReveal({
         x: 0,
         y: 0,
       } : {
-        opacity: 0,
+        opacity: shouldReduceMotion ? 1 : 0,
         ...directionVariants[direction],
       }}
       transition={{
-        duration,
-        delay,
+        duration: shouldReduceMotion ? 0 : duration,
+        delay: shouldReduceMotion ? 0 : delay,
         ease: [0.22, 1, 0.36, 1],
       }}
       className={className}

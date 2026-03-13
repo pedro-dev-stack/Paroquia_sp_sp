@@ -1,8 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 export function StainedGlassBackground() {
+  const shouldReduceMotion = useReducedMotion()
+  
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Base dark gradient */}
@@ -14,7 +16,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.45 0.18 25 / 0.4), transparent 70%)',
         }}
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           scale: [1, 1.1, 1],
           opacity: [0.15, 0.25, 0.15],
           x: [0, 30, 0],
@@ -33,7 +35,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.35 0.12 250 / 0.5), transparent 70%)',
         }}
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           scale: [1, 1.15, 1],
           opacity: [0.1, 0.2, 0.1],
           x: [0, -20, 0],
@@ -53,7 +55,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.75 0.14 80 / 0.3), transparent 60%)',
         }}
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           scale: [1, 1.08, 1],
           opacity: [0.08, 0.15, 0.08],
         }}
@@ -71,7 +73,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.65 0.15 70 / 0.4), transparent 70%)',
         }}
-        animate={{
+        animate={shouldReduceMotion ? {} : {
           scale: [1, 1.12, 1],
           opacity: [0.08, 0.12, 0.08],
           x: [0, 40, 0],
