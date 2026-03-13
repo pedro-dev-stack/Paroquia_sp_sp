@@ -16,7 +16,6 @@ const quickLinks = [
 const institutionalLinks = [
   { href: '/historia', label: 'História da Paróquia' },
   { href: '/galeria', label: 'Galeria' },
-  { href: '/blog', label: 'Formação' },
   { href: '/secretaria', label: 'Secretaria' },
   { href: '/avisos', label: 'Avisos Paroquiais' },
 ]
@@ -32,7 +31,7 @@ export function Footer() {
           {/* Brand Column */}
           <SectionReveal className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <Cross className="h-8 w-8 text-primary" strokeWidth={1.5} />
+              <img src=".\logo_preview.png" className='w-15' />
               <div>
                 <p className="font-serif text-xl tracking-wide text-foreground">
                   São Pedro e São Paulo
