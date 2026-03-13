@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Bell, Calendar, AlertCircle, Info, Clock, MapPin, Users } from "lucide-react"
-import { PageLayout } from "@/components/layouts/page-layout"
+import { PageLayout, PageHeader } from "@/components/layouts/page-layout"
 import { SectionReveal } from "@/components/cathedral/section-reveal"
 
 export default function AvisosPage() {
@@ -87,11 +87,14 @@ export default function AvisosPage() {
   }
 
   return (
-    <PageLayout
-      title="Avisos Paroquiais"
-      subtitle="Comunicados e Informações"
-      description="Fique por dentro de todas as novidades e comunicados da nossa paróquia"
-    >
+    <PageLayout>
+      <PageHeader
+        overline="Comunicados e Informações"
+        title="Avisos Paroquiais"
+        description="Fique por dentro de todas as novidades e comunicados da nossa paróquia"
+      />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
       {/* Filtros */}
       <SectionReveal>
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -217,6 +220,7 @@ export default function AvisosPage() {
             </a>
           </div>
         </SectionReveal>
+      </div>
       </div>
     </PageLayout>
   )

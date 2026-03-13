@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { BookOpen, Users, GraduationCap, Calendar, Clock, MapPin, ChevronRight } from "lucide-react"
-import PageLayout from "@/components/layouts/page-layout"
+import { PageLayout, PageHeader } from "@/components/layouts/page-layout"
 import { SectionReveal } from "@/components/cathedral/section-reveal"
 
 export default function FormacaoPage() {
@@ -100,11 +100,14 @@ export default function FormacaoPage() {
   ]
 
   return (
-    <PageLayout
-      title="Formação Cristã"
-      subtitle="Crescendo na Fé"
-      description="Cursos, estudos e formações para aprofundar seu conhecimento da fé católica"
-    >
+    <PageLayout>
+      <PageHeader
+        overline="Crescendo na Fé"
+        title="Formação Cristã"
+        description="Cursos, estudos e formações para aprofundar seu conhecimento da fé católica"
+      />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
       {/* Introdução */}
       <SectionReveal>
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -290,6 +293,7 @@ export default function FormacaoPage() {
           </div>
         </div>
       </SectionReveal>
+      </div>
     </PageLayout>
   )
 }
