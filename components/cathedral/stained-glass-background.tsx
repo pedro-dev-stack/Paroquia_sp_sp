@@ -5,13 +5,22 @@ import { useState, useEffect } from 'react'
 
 export function StainedGlassBackground() {
   const shouldReduceMotion = useReducedMotion()
-  const [isMobile, setIsMobile] = useState(false)
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop')
 
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768)
+    const width = window.innerWidth
+    if (width < 640) {
+      setDeviceType('mobile')
+    } else if (width < 1024) {
+      setDeviceType('tablet')
+    } else {
+      setDeviceType('desktop')
+    }
   }, [])
 
-  const disableAnimation = shouldReduceMotion || isMobile
+  // Mobile: sem animações | Tablet: animações lentas | Desktop: animações completas
+  const disableAnimation = shouldReduceMotion || deviceType === 'mobile'
+  const slowAnimation = deviceType === 'tablet'
   
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -31,7 +40,7 @@ export function StainedGlassBackground() {
           y: [0, 20, 0],
         }}
         transition={{
-          duration: 20,
+          duration: slowAnimation ? 30 : 20,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
@@ -50,7 +59,7 @@ export function StainedGlassBackground() {
           y: [0, 30, 0],
         }}
         transition={{
-          duration: 25,
+          duration: slowAnimation ? 35 : 25,
           repeat: Infinity,
           ease: 'easeInOut',
           delay: 2,
@@ -68,7 +77,7 @@ export function StainedGlassBackground() {
           opacity: [0.08, 0.15, 0.08],
         }}
         transition={{
-          duration: 15,
+          duration: slowAnimation ? 22 : 15,
           repeat: Infinity,
           ease: 'easeInOut',
           delay: 1,
@@ -87,15 +96,15 @@ export function StainedGlassBackground() {
           x: [0, 40, 0],
         }}
         transition={{
-          duration: 22,
+          duration: slowAnimation ? 32 : 22,
           repeat: Infinity,
           ease: 'easeInOut',
           delay: 3,
         }}
       />
       
-      {/* Stained glass pattern overlay - Desabilitado no mobile */}
-      {!isMobile && (
+      {/* Stained glass pattern overlay - Apenas desktop */}
+      {deviceType === 'desktop' && (
         <svg
           className="absolute inset-0 w-full h-full opacity-[0.02]"
           xmlns="http://www.w3.org/2000/svg"

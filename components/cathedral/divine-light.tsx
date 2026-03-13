@@ -14,7 +14,7 @@ interface DustParticle {
 
 export function DivineLight() {
   const [mounted, setMounted] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop')
   const [dustParticles] = useState<DustParticle[]>(() => 
     Array.from({ length: 30 }, (_, i) => ({
       id: i,
@@ -28,10 +28,20 @@ export function DivineLight() {
 
   useEffect(() => {
     setMounted(true)
-    setIsMobile(window.innerWidth < 768)
+    const width = window.innerWidth
+    if (width < 640) {
+      setDeviceType('mobile')
+    } else if (width < 1024) {
+      setDeviceType('tablet')
+    } else {
+      setDeviceType('desktop')
+    }
   }, [])
 
   if (!mounted) return null
+
+  // Mobile: sem partículas | Tablet: 10 partículas | Desktop: 30 partículas
+  const particleCount = deviceType === 'mobile' ? 0 : deviceType === 'tablet' ? 10 : 30
   
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -108,8 +118,8 @@ export function DivineLight() {
         }}
       />
       
-      {/* Floating dust particles - Reduzido para mobile */}
-      {!isMobile && dustParticles.slice(0, 15).map((particle) => (
+      {/* Floating dust particles - Otimizado por dispositivo */}
+      {dustParticles.slice(0, particleCount).map((particle) => (
         <motion.div
           key={particle.id}
           className="absolute rounded-full bg-primary/40"
