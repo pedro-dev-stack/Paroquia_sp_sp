@@ -1,0 +1,247 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Cathedral Design System - Dark Mode Only */
+:root {
+  /* Deep charcoal background */
+  --background: oklch(0.12 0.005 250);
+  --foreground: oklch(0.92 0.01 80);
+  
+  /* Cathedral stone grays */
+  --card: oklch(0.15 0.005 250);
+  --card-foreground: oklch(0.92 0.01 80);
+  --popover: oklch(0.13 0.005 250);
+  --popover-foreground: oklch(0.92 0.01 80);
+  
+  /* Liturgical gold */
+  --primary: oklch(0.75 0.14 80);
+  --primary-foreground: oklch(0.12 0.005 250);
+  
+  /* Cathedral stone secondary */
+  --secondary: oklch(0.22 0.01 250);
+  --secondary-foreground: oklch(0.85 0.02 80);
+  
+  /* Muted cathedral stone */
+  --muted: oklch(0.18 0.008 250);
+  --muted-foreground: oklch(0.65 0.02 80);
+  
+  /* Accent - warm amber gold */
+  --accent: oklch(0.70 0.12 70);
+  --accent-foreground: oklch(0.12 0.005 250);
+  
+  /* Stained glass colors */
+  --stained-red: oklch(0.45 0.18 25);
+  --stained-blue: oklch(0.35 0.12 250);
+  --stained-amber: oklch(0.65 0.15 70);
+  --stained-gold: oklch(0.75 0.14 80);
+  
+  /* Parchment highlight */
+  --parchment: oklch(0.88 0.04 80);
+  
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.95 0.02 80);
+  
+  --border: oklch(0.25 0.01 250);
+  --input: oklch(0.20 0.008 250);
+  --ring: oklch(0.75 0.14 80);
+  
+  --radius: 0.5rem;
+  
+  /* Cathedral atmospheric */
+  --divine-light: oklch(0.95 0.08 80 / 0.15);
+  --cathedral-shadow: oklch(0.08 0.01 250 / 0.8);
+  --stone-texture: oklch(0.20 0.01 250);
+}
+
+.dark {
+  --background: oklch(0.12 0.005 250);
+  --foreground: oklch(0.92 0.01 80);
+  --card: oklch(0.15 0.005 250);
+  --card-foreground: oklch(0.92 0.01 80);
+  --popover: oklch(0.13 0.005 250);
+  --popover-foreground: oklch(0.92 0.01 80);
+  --primary: oklch(0.75 0.14 80);
+  --primary-foreground: oklch(0.12 0.005 250);
+  --secondary: oklch(0.22 0.01 250);
+  --secondary-foreground: oklch(0.85 0.02 80);
+  --muted: oklch(0.18 0.008 250);
+  --muted-foreground: oklch(0.65 0.02 80);
+  --accent: oklch(0.70 0.12 70);
+  --accent-foreground: oklch(0.12 0.005 250);
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.95 0.02 80);
+  --border: oklch(0.25 0.01 250);
+  --input: oklch(0.20 0.008 250);
+  --ring: oklch(0.75 0.14 80);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Stained glass theme colors */
+  --color-stained-red: var(--stained-red);
+  --color-stained-blue: var(--stained-blue);
+  --color-stained-amber: var(--stained-amber);
+  --color-stained-gold: var(--stained-gold);
+  --color-parchment: var(--parchment);
+  --color-divine-light: var(--divine-light);
+  --color-cathedral-shadow: var(--cathedral-shadow);
+  --color-stone-texture: var(--stone-texture);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Selection color */
+  ::selection {
+    background: oklch(0.75 0.14 80 / 0.3);
+    color: oklch(0.95 0.02 80);
+  }
+}
+
+/* Cathedral scroll styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0.005 250);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.25 0.01 250);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.35 0.01 250);
+}
+
+/* Divine light animation keyframes */
+@keyframes divine-shimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes dust-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(5px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-5px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes stained-glass-glow {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.15) saturate(1.1);
+  }
+}
+
+@keyframes light-ray {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translateX(0) skewX(-15deg);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translateX(20px) skewX(-15deg);
+  }
+}
+
+/* Utility classes for cathedral effects */
+.divine-shimmer {
+  animation: divine-shimmer 8s ease-in-out infinite;
+}
+
+.dust-particle {
+  animation: dust-float 12s ease-in-out infinite;
+}
+
+.stained-glow {
+  animation: stained-glass-glow 6s ease-in-out infinite;
+}
+
+.light-ray {
+  animation: light-ray 10s ease-in-out infinite;
+}
+
+/* Text rendering optimization */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
