@@ -6,16 +6,7 @@
 import { Metadata } from 'next'
 import { generateMetadata as genMeta } from '@/lib/metadata'
 import { PageLayout } from '@/components/layouts/page-layout'
-import dynamic from 'next/dynamic'
-
-// Lazy load form component (client-side only)
-const ContactForm = dynamic(
-  () => import('@/components/forms/contact-form').then(mod => ({ default: mod.ContactForm })),
-  { 
-    ssr: false,
-    loading: () => <div className="h-[600px] animate-pulse bg-muted/10 rounded-lg" />
-  }
-)
+import { ContactForm } from '@/components/forms/contact-form'
 
 export const metadata: Metadata = genMeta({
   title: 'Contato',
@@ -24,7 +15,6 @@ export const metadata: Metadata = genMeta({
   url: '/contato',
 })
 
-// Force dynamic rendering for contact page
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
