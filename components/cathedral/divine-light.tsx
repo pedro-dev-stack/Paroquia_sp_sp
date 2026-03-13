@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 interface DustParticle {
   id: number
@@ -13,7 +13,9 @@ interface DustParticle {
 }
 
 export function DivineLight() {
-  const dustParticles = useMemo<DustParticle[]>(() => 
+  const [mounted, setMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [dustParticles] = useState<DustParticle[]>(() => 
     Array.from({ length: 30 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
@@ -22,7 +24,15 @@ export function DivineLight() {
       duration: 8 + Math.random() * 8,
       size: 1 + Math.random() * 2,
     }))
-  , [])
+  )
+
+  useEffect(() => {
+    setMounted(true)
+    setIsMobile(window.innerWidth < 768)
+  }, [])
+
+  if (!mounted) return null
+  
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Primary diagonal light beam from top right */}
@@ -98,8 +108,8 @@ export function DivineLight() {
         }}
       />
       
-      {/* Floating dust particles */}
-      {dustParticles.map((particle) => (
+      {/* Floating dust particles - Reduzido para mobile */}
+      {!isMobile && dustParticles.slice(0, 15).map((particle) => (
         <motion.div
           key={particle.id}
           className="absolute rounded-full bg-primary/40"

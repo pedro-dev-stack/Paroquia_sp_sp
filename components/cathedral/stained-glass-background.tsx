@@ -1,9 +1,17 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 export function StainedGlassBackground() {
   const shouldReduceMotion = useReducedMotion()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+  }, [])
+
+  const disableAnimation = shouldReduceMotion || isMobile
   
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -16,7 +24,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.45 0.18 25 / 0.4), transparent 70%)',
         }}
-        animate={shouldReduceMotion ? {} : {
+        animate={disableAnimation ? {} : {
           scale: [1, 1.1, 1],
           opacity: [0.15, 0.25, 0.15],
           x: [0, 30, 0],
@@ -35,7 +43,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.35 0.12 250 / 0.5), transparent 70%)',
         }}
-        animate={shouldReduceMotion ? {} : {
+        animate={disableAnimation ? {} : {
           scale: [1, 1.15, 1],
           opacity: [0.1, 0.2, 0.1],
           x: [0, -20, 0],
@@ -55,7 +63,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.75 0.14 80 / 0.3), transparent 60%)',
         }}
-        animate={shouldReduceMotion ? {} : {
+        animate={disableAnimation ? {} : {
           scale: [1, 1.08, 1],
           opacity: [0.08, 0.15, 0.08],
         }}
@@ -73,7 +81,7 @@ export function StainedGlassBackground() {
         style={{
           background: 'radial-gradient(ellipse, oklch(0.65 0.15 70 / 0.4), transparent 70%)',
         }}
-        animate={shouldReduceMotion ? {} : {
+        animate={disableAnimation ? {} : {
           scale: [1, 1.12, 1],
           opacity: [0.08, 0.12, 0.08],
           x: [0, 40, 0],
@@ -86,34 +94,35 @@ export function StainedGlassBackground() {
         }}
       />
       
-      {/* Stained glass pattern overlay */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.02]"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <pattern
-            id="cathedral-pattern"
-            x="0"
-            y="0"
-            width="100"
-            height="100"
-            patternUnits="userSpaceOnUse"
-          >
-            {/* Gothic arch pattern */}
-            <path
-              d="M50 10 Q50 50 20 80 L80 80 Q50 50 50 10"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              className="text-primary/30"
-            />
-            <circle cx="50" cy="40" r="15" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-primary/20" />
-            <circle cx="50" cy="40" r="8" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-primary/20" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#cathedral-pattern)" />
-      </svg>
+      {/* Stained glass pattern overlay - Desabilitado no mobile */}
+      {!isMobile && (
+        <svg
+          className="absolute inset-0 w-full h-full opacity-[0.02]"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="cathedral-pattern"
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M50 10 Q50 50 20 80 L80 80 Q50 50 50 10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="0.5"
+                className="text-primary/30"
+              />
+              <circle cx="50" cy="40" r="15" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-primary/20" />
+              <circle cx="50" cy="40" r="8" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-primary/20" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#cathedral-pattern)" />
+        </svg>
+      )}
       
       {/* Vignette effect */}
       <div 
